@@ -151,10 +151,6 @@ body {
     transition: all 0.2s ease;
 }
 
-.gender-details .category .dot:hover {
-    background-color: rgba(var(--primary-color) , 0.75);
-}
-
 #dot-1:checked ~ .category label .one ,
 #dot-2:checked ~ .category label .two ,
 #dot-3:checked ~ .category label .three {
