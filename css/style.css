@@ -1,8 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap'); 
 
 :root {
-    --primary-color: 34 , 195 , 83;
-    --secondary-color: #FFF;
+    --background-color: 34 , 195 , 83; 
+    --form-background: 255 , 255 , 255 , 1;
+    --input-background: 255 , 255 , 255;
+    --under-title-line: 34 , 195 , 83;
+    --input-box-shadow: 0 , 0 , 0 , 0.17;
+    --input-border: 34 , 195 , 83;
+    --text-color: 0 , 0 , 0;
+    --input-text-color: 0 , 0 , 0;
+    --submit-btn: 34 , 195 , 83;
+    --radio-btn: 34 , 195 , 83 , 0.5;
+    --radio-btn-border: 34 , 195 , 83;
+    --dark-mode-btn: 255 , 255 , 255;
+}
+
+.dark-theme {
+    --background-color: 25 , 25 , 26;
+    --form-background: 35 , 35 , 37 , 0.8;
+    --input-background: 40 , 40 , 41;
+    --under-title-line: 255 , 255 , 255;
+    --input-box-shadow: 255 , 255 , 255 , 0;
+    --input-border: 255 , 255 , 255;
+    --text-color: 255 , 255 , 255;
+    --input-text-color: 0 , 0 , 0;
+    --submit-btn: 40 , 40 , 41;
+    --radio-btn: 55 , 55 , 57;
+    --radio-btn-border: 255 , 255 , 255;
+    --dark-mode-btn: 40 , 40 , 41 , 0.8;
+    transition: all 0.3s ease;
 }
 
 * {
@@ -10,6 +36,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    color: rgba(var(--text-color) , 1);
 }
 
 body {
@@ -17,12 +44,12 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: rgba(var(--primary-color) , 1);
+    background: rgba(var(--background-color) , 1);
     padding: 20px;
 }
 
 .container {
-    background-color: #FFF;
+    background-color: rgba(var(--form-background));
     max-width: 700px;
     width: 100%;
     padding: 20px;
@@ -43,7 +70,7 @@ body {
     bottom: 0;
     height: 2.5px;
     width: 30px;
-    background: #1d963f;
+    background: rgba(var(--under-title-line) , 1);
 }
 
 .user-details {
@@ -63,15 +90,20 @@ body {
     padding: 10px;
     border-radius: 8px;
     border: 0;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 7px 0 rgba(var(--input-box-shadow));
     outline: none;
     font-size: 16px;
-    margin-top: 5px;
+    margin-top: 8px;
+    background-color: rgba(var(--input-background) , 1);
+    /* color: rgba(var(--input-text-color) , 1); */
 }
 
-.user-details .input-box input:focus , 
+.user-details .input-box input:focus {
+    border: 1px solid rgba(var(--input-border) , 0.7);
+    box-shadow: 0 0 7px 0 rgba(var(--input-box-shadow));
+} 
 .user-details .input-box input:valid{
-    border: 2px solid #48894b;
+    border: 1px solid rgba(var(--input-border) , 0.7);
     box-shadow: none;
 }
 
@@ -102,23 +134,32 @@ body {
     display: flex;
     align-items: center;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gender-details .category label:hover {
+    transform: scale(1.075);
 }
 
 .gender-details .category .dot {
     height: 20px;
     width: 20px;
-        background-color: rgba(var(--primary-color) , 0.2);
-    border: 5px solid transparent;    
+    background-color: rgba(var(--radio-btn));
+    border: 5px solid transparent;
     border-radius: 50%;
     margin-right: 5px;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
+}
+
+.gender-details .category .dot:hover {
+    background-color: rgba(var(--primary-color) , 0.75);
 }
 
 #dot-1:checked ~ .category label .one ,
 #dot-2:checked ~ .category label .two ,
 #dot-3:checked ~ .category label .three {
-    background: rgba(var(--secondary-color) , 1);
-    border: 5px solid rgba(var(--primary-color) , 1);
+    background: rgba(var(--input-background) , 1);
+    border: 5px solid rgba(var(--radio-btn-border));
 
 }
 
@@ -135,7 +176,7 @@ body {
     width: 100%;
     height: 100%;
     color: #FFF;
-    background: rgba(var(--primary-color) , 1);
+    background: rgba(var(--submit-btn) , 1);
     border: 0;
     border-radius: 8px;
     font-size: 18px;
@@ -146,6 +187,24 @@ body {
 
 .button-container input:hover {
     transform: scale(1.025);
+}
+
+.darkModeBtn {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    right: 25px;
+    width: 45px;
+    padding: 5px;
+    background: rgba(var(--dark-mode-btn));
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px 0 rgba(var(--text-color) , 0.2);
+}
+
+.darkModeBtn:hover {
+    transform: scale(1.075);
 }
 
 @media (max-width: 584px) {
@@ -159,5 +218,9 @@ body {
 
     body {
         padding: 500px 20px 550px 20px;
+    }
+
+    .gender-details .category {
+        width: 100%;
     }
 }
