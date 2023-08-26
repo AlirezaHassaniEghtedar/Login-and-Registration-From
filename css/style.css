@@ -218,5 +218,10 @@ body {
 
     .gender-details .category {
         width: 100%;
+        flex-direction: column;
+    }
+
+    .gender-details .category label {
+        margin-top: 5px;
     }
 }
