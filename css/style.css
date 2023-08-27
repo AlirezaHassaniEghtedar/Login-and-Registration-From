@@ -203,6 +203,19 @@ body {
     transform: scale(1.075);
 }
 
+/* Remove Number Input Arrows  */
+input[type=number] {
+    -moz-appearance: textfield !important;
+    appearance: none;
+}
+
+input[type=number]::-webkit-outer-spin-button ,
+input[type=number]::-webkit-inner-spin-button  {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+
+
 @media (max-width: 584px) {
     .container {
         max-width: 100%;
