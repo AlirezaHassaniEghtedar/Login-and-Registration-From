@@ -28,7 +28,7 @@
     --radio-btn: 55 , 55 , 57;
     --radio-btn-border: 255 , 255 , 255;
     --dark-mode-btn: 40 , 40 , 41 , 0.8;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 * {
